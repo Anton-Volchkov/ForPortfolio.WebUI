@@ -1,0 +1,23 @@
+﻿@using Application.Data
+@{
+    ViewData["Title"] = "Ответы";
+}
+
+@model Comment[]
+@{
+    foreach (var comment in Model)
+    {
+        <div class="card p-3 text-right">
+            <blockquote class="blockquote mb-0">
+                <p>@comment.Answer</p>
+                <footer class="blockquote-footer">
+                    <small class="text-muted">
+                        @comment.CommentText
+                    </small>
+                </footer>
+            </blockquote>
+        </div>
+        <br/>
+    }
+   
+}

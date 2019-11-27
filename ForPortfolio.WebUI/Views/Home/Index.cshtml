@@ -1,0 +1,21 @@
+﻿@using ForPortfolio.WebUI.Validation
+@model CommentValidation
+
+@{
+    ViewData["Title"] = "Главная страница";
+}
+
+
+<div class="jumbotron  mb-6">
+    <h1 class="display-4">Задай вопрос и я обязательно отвечу!</h1>
+    <p class="lead">Не волнуйтесь, если что-то не работает. Если бы всё работало, меня бы уволили. </p>
+    <hr class="my-4">
+    <form method="post" asp-antiforgery="true" asp-action="Create" asp-controller="Comment">
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Что же ты хочешь спросить?</label>
+            <textarea  class="form-control" asp-for="Text" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <span asp-validation-for="Text"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Отправить</button>
+    </form>
+</div>
