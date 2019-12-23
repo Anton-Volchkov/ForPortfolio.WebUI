@@ -40,6 +40,12 @@ namespace ForPortfolio.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> Callback([FromBody] Updates updates)
         {
+            // Проверка совпадения ключа
+            if(updates.Secret != _configuration["secret"])
+            {
+                return Ok("Bad Secret Key");
+            }
+
             // Проверяем, что находится в поле "type" 
             if (updates.Type == "confirmation")
             {
